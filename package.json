@@ -1,0 +1,25 @@
+{
+  "name": "content-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node_modules/.bin/babel-node src/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^1.2.0",
+    "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "mongoose": "^4.13.5",
+    "graphql-tools": "^2.8.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.12.0"
+  }
+}

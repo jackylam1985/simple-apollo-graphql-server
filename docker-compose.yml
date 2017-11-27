@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+
+  content-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - MONGODB_HOST=content-service-mongo
+      - MONGODB_PORT=27017
+      - PORT=3000
+    links:
+      - content-service-mongo
+    depends_on:
+      - content-service-mongo
+    command: npm run dev
+
+  content-service-mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes_from:
+      - content-service-mongo-data
+    depends_on:
+      - content-service-mongo-data
+
+  content-service-mongo-data:
+    image: tianon/true
+    volumes:
+      - /data/db
